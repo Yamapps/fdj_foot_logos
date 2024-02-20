@@ -30,11 +30,6 @@ internal class RetrofitNetworkDataSource @Inject constructor(
     private val networkApi: RetrofitNetworkApi
 ): NetworkDataSource {
 
-
-    private val allLeagues = runBlocking { getAllLeagues()
-    }
-
-    @Throws(Exception::class)
     override suspend fun getAllLeagues(): Result<List<LeagueDto>> {
         return try {
             Result.success(networkApi.getAllLeagues().leagues)
@@ -57,11 +52,24 @@ internal class RetrofitNetworkDataSource @Inject constructor(
         }
     }
 
-    @Throws(Exception::class)
     override suspend fun getTeamsByLeague(league: String): Result<List<TeamDto>> {
         return try {
             Result.success(networkApi.getTeamsByLeague(league).teams)
+        }
+        catch (e: NetworkException) {
+            Timber.e(e)
+            Result.failure(e)
+        } catch (e: ConnectException) {
+            Timber.e(e)
+            Result.failure(NetworkException(GenericExceptionCode.CONNECTION_TIMEOUT_EXCEPTION))
+        } catch (e: SocketTimeoutException) {
+            Timber.e(e)
+            Result.failure(NetworkException(GenericExceptionCode.CONNECTION_TIMEOUT_EXCEPTION))
+        } catch (e: UnknownHostException) {
+            Timber.e(e)
+            Result.failure(NetworkException(GenericExceptionCode.NO_NETWORK_EXCEPTION))
         } catch (e: Exception) {
+            Timber.e(e)
             Result.failure(e)
         }
     }

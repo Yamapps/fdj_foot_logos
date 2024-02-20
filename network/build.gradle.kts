@@ -70,6 +70,8 @@ dependencies {
     implementation(libs.coil.svg)
 
     testImplementation(libs.junit)
+    testImplementation(libs.mockk)
+    testImplementation(libs.kotlinx.coroutines.test)
 
     androidTestImplementation(libs.androidx.test)
     androidTestImplementation(libs.expresso.core)
