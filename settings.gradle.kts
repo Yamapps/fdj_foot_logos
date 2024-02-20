@@ -15,4 +15,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "Foot Logos"
 include(":app")
- 
+include(":common")
+include(":network")
+include(":data")
+include(":feature:league")

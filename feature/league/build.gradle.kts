@@ -1,25 +1,21 @@
+@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.kotlinAndroid)
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
+    id("kotlinx-serialization")
 }
 
 android {
-    namespace = "com.fdj.footlogos"
+    namespace = "com.fdj.footlogos.league"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.fdj.footlogos"
         minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables {
-            useSupportLibrary = true
-        }
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -44,48 +40,44 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
     }
-    packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
+    testOptions {
+        unitTests.isIncludeAndroidResources = true
     }
 }
 
 dependencies {
 
-    implementation(project(":feature:league"))
     implementation(project(":data"))
+    implementation(project(":network"))
     implementation(project(":common"))
 
     implementation(libs.androidx.core)
-    implementation(libs.androidx.lifecycle.runtime)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.compose.bom))
     implementation(libs.compose.ui)
     implementation(libs.compose.ui.graphics)
     implementation(libs.compose.ui.tooling.preview)
     implementation(libs.compose.material3)
+    implementation(libs.androidx.lifecycle.viewmodel)
+    implementation(libs.androidx.lifecycle.runtime.compose)
 
-    /* Hilt */
+
+    // Hilt
     implementation(libs.hilt.android)
+    debugImplementation(libs.compose.ui.tooling)
     kapt(libs.hilt.compiler)
+    implementation(libs.hilt.compose)
     kapt(libs.hilt.android.compiler)
 
-    /* Coil - ImageLoader */
+    //Coil
     implementation(libs.coil)
+    implementation(libs.coil.compose)
 
     testImplementation(libs.junit)
 
     androidTestImplementation(libs.androidx.test)
     androidTestImplementation(libs.expresso.core)
-    androidTestImplementation(platform(libs.compose.bom))
-    androidTestImplementation(libs.compose.ui.test)
-
-    debugImplementation(libs.compose.ui.tooling)
-    debugImplementation(libs.compose.ui.test.manifest)
-}
-
-// Allow references to generated code
-kapt {
-    correctErrorTypes = true
 }
