@@ -30,6 +30,7 @@ ui-tooling = "1.6.1"
 agp = "8.2.2"
 kotlin = "1.9.0"
 kotlinx-serialization-version = "1.9.0"
+turbine = "1.0.0"
 
 [libraries]
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
@@ -78,6 +79,7 @@ timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 androidx-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "androidx-lifecycle-version" }
 androidx-lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "androidx-lifecycle-version" }
 androidx-paging-compose = { module = "androidx.paging:paging-compose", version.ref = "paging-runtime-ktx" }
+turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine" }
 
 [bundles]
 

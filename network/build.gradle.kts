@@ -50,7 +50,6 @@ dependencies {
     implementation(libs.javax.inject)
 
     implementation(libs.kotlinx.serialization.json)
-    implementation(libs.kotlinx.datetime)
 
     /* Retrofit */
     implementation(libs.retrofit)
@@ -72,7 +71,4 @@ dependencies {
     testImplementation(libs.junit)
     testImplementation(libs.mockk)
     testImplementation(libs.kotlinx.coroutines.test)
-
-    androidTestImplementation(libs.androidx.test)
-    androidTestImplementation(libs.expresso.core)
 }

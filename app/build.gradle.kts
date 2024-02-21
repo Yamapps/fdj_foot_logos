@@ -53,7 +53,7 @@ android {
 
 dependencies {
 
-    implementation(project(":feature:league"))
+    implementation(project(":feature:teamList"))
     implementation(project(":data"))
     implementation(project(":common"))
 

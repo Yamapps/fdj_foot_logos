@@ -34,11 +34,11 @@ class LeagueListViewModel @Inject constructor(
 
     suspend fun fetchAllLeagues(){
         _leaguesUiState.value = UiState.Loading
-        val result = leagueRepository.getAllLeagues()
-        try {
-            _leaguesUiState.value = UiState.Success(result.getOrThrow())
-        } catch (e: Exception){
 
+        val result = leagueRepository.getAllLeagues()
+        _leaguesUiState.value = try {
+            UiState.Success(result.getOrThrow())
+        } catch (e: Exception){
             UiState.Failure(e)
         }
     }
@@ -46,13 +46,13 @@ class LeagueListViewModel @Inject constructor(
 
     suspend fun fetchTeamsByLeague(league: String){
         _teamsUiState.value = UiState.Loading
-        val result = teamRepository.getTeamsByLeague(league)
 
-        try {
+        val result = teamRepository.getTeamsByLeague(league)
+        _teamsUiState.value = try {
             val items = result.getOrThrow()
-            _teamsUiState.value = UiState.Success(items)
+            UiState.Success(items)
         } catch (e: Exception){
-            _teamsUiState.value = UiState.Failure(e)
+            UiState.Failure(e)
         }
     }
 }
