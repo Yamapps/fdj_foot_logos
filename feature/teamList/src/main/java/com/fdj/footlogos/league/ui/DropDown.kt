@@ -27,10 +27,15 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.fdj.footlogos.league.R
+import com.fdj.footlogos.league.test.TestTags.CLEAR_BUTTON_TAG
+import com.fdj.footlogos.league.test.TestTags.LEAGUE_ITEM_TAG
+import com.fdj.footlogos.league.test.TestTags.NO_LEAGUE_ITEM_TAG
+import com.fdj.footlogos.league.test.TestTags.SEARCH_FIELD_TAG
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -101,12 +106,14 @@ fun DropDown(
                     ),
                     modifier = Modifier
                         .menuAnchor()
+                        .testTag(SEARCH_FIELD_TAG)
                 )
                 Spacer(modifier = Modifier.width(15.dp))
                 Text(
                     modifier = Modifier
                         .clickable { selectedText = "" }
-                        .padding(10.dp),
+                        .padding(10.dp)
+                        .testTag(CLEAR_BUTTON_TAG),
                     color = MaterialTheme.colorScheme.primary,
                     text = stringResource(id = R.string.clear)
                 )
@@ -119,6 +126,7 @@ fun DropDown(
                 ) {
                     if (listItems.isEmpty()) {
                         DropdownMenuItem(
+                            modifier = Modifier.testTag(NO_LEAGUE_ITEM_TAG),
                             text = { Text(text = stringResource(id = R.string.no_league_found)) },
                             onClick = {
                                 expanded = false
@@ -127,6 +135,7 @@ fun DropDown(
                     } else {
                         listItems.forEach { item ->
                             DropdownMenuItem(
+                                modifier = Modifier.testTag(LEAGUE_ITEM_TAG),
                                 text = { Text(text = item) },
                                 onClick = {
                                     focusManager.clearFocus()

@@ -22,6 +22,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -36,6 +37,7 @@ import com.fdj.footlogos.league.Loading
 import com.fdj.footlogos.league.MainViewModel
 import com.fdj.footlogos.league.R
 import com.fdj.footlogos.league.RetryCard
+import com.fdj.footlogos.league.test.TestTags
 import kotlinx.coroutines.launch
 
 
@@ -100,6 +102,7 @@ fun StaggeredTeamList(teamList: List<Team>){
 fun TeamItem(team: Team){
     Column(
         modifier = Modifier
+            .testTag(TestTags.TEAM_ITEM_TAG)
             .wrapContentHeight()
             .padding(10.dp),
         horizontalAlignment = Alignment.CenterHorizontally)
@@ -139,6 +142,7 @@ fun EmptyField(){
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
+            modifier = Modifier.testTag(TestTags.NO_TEAM_ITEM_TAG),
             color = MaterialTheme.colorScheme.primary,
             text = stringResource(id = R.string.please_select_league)
         )

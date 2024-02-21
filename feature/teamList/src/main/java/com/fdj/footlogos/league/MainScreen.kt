@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
@@ -20,6 +21,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -28,6 +30,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.fdj.footlogos.common.exception.GenericExceptionCode
 import com.fdj.footlogos.data.model.UiState
+import com.fdj.footlogos.league.test.TestTags.RETRY_TAG
 import com.fdj.footlogos.league.ui.DropDown
 import com.fdj.footlogos.league.ui.TeamList
 import kotlinx.coroutines.launch
@@ -80,7 +83,8 @@ fun RetryCard(
 ){
     Column(
         modifier = Modifier
-            .fillMaxSize(),
+            .fillMaxSize()
+            .testTag(RETRY_TAG),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
