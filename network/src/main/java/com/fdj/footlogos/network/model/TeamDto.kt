@@ -5,5 +5,6 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class TeamDto(
     val idTeam: String,
-    val strTeamBadge: String
+    val strTeamBadge: String,
+    val strAlternate: String
 )

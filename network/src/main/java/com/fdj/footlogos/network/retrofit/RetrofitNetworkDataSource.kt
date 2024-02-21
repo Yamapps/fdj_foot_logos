@@ -7,7 +7,6 @@ import com.fdj.footlogos.network.model.AllLeaguesDto
 import com.fdj.footlogos.network.model.AllTeamsDto
 import com.fdj.footlogos.network.model.LeagueDto
 import com.fdj.footlogos.network.model.TeamDto
-import kotlinx.coroutines.runBlocking
 import retrofit2.http.GET
 import retrofit2.http.Query
 import timber.log.Timber

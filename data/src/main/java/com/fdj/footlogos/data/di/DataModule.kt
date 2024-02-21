@@ -1,6 +1,5 @@
 package com.fdj.footlogos.data.di
 
-import com.fdj.footlogos.common.AppDispatchers
 import com.fdj.footlogos.data.LeagueRepository
 import com.fdj.footlogos.data.LeagueRepositoryImpl
 import com.fdj.footlogos.data.TeamRepository
@@ -14,19 +13,17 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-internal abstract class DataModule {
+object DataModule {
 
-    companion object{
-        @Singleton
-        @Provides
-        fun provideLeagueRepository(
-            networkDataSource: NetworkDataSource
-        ): LeagueRepository = LeagueRepositoryImpl(networkDataSource)
+    @Singleton
+    @Provides
+    fun provideLeagueRepository(
+        networkDataSource: NetworkDataSource
+    ): LeagueRepository = LeagueRepositoryImpl(networkDataSource)
 
-        @Singleton
-        @Provides
-        fun provideTeamRepository(
-            networkDataSource: NetworkDataSource
-        ): TeamRepository = TeamRepositoryImpl(networkDataSource)
-    }
+    @Singleton
+    @Provides
+    fun provideTeamRepository(
+        networkDataSource: NetworkDataSource
+    ): TeamRepository = TeamRepositoryImpl(networkDataSource)
 }

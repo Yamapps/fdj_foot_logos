@@ -32,7 +32,7 @@ import org.junit.rules.TestWatcher
 import org.junit.runner.Description
 
 @OptIn(ExperimentalCoroutinesApi::class)
-class LeagueListViewModelTest {
+class MainViewModelTest {
 
     @get:Rule
     val mainDispatcherRule = MainDispatcherRule()
@@ -45,7 +45,7 @@ class LeagueListViewModelTest {
     private val leagueRepository = mockk<LeagueRepository>(relaxed = true)
     private val teamRepository = mockk<TeamRepository>(relaxed = true)
 
-    private lateinit var viewModel: LeagueListViewModel
+    private lateinit var viewModel: MainViewModel
 
     @Before
     fun setUp() {
@@ -62,7 +62,7 @@ class LeagueListViewModelTest {
             it.mapTeam()
         }
 
-        viewModel = LeagueListViewModel(leagueRepository, teamRepository)
+        viewModel = MainViewModel(leagueRepository, teamRepository)
     }
 
     @Test

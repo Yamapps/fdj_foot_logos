@@ -29,7 +29,6 @@ import javax.inject.Singleton
 internal abstract class NetworkModule {
 
     companion object {
-
         @Provides
         @Singleton
         fun providesNetworkJson(): Json = Json {
@@ -90,8 +89,8 @@ internal abstract class NetworkModule {
     }
 
     @Binds
+    @Singleton
     internal abstract fun bindsNetworkDataSource(
         retrofitNetworkDataSource: RetrofitNetworkDataSource
     ): NetworkDataSource
-
 }

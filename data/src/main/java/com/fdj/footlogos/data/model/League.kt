@@ -11,7 +11,7 @@ data class League(
 
 sealed class UiState<out S> {
     data object Loading : UiState<Nothing>()
-    data class Success<out S>(val leagueList: List<S>) : UiState<S>()
+    data class Success<out S>(val itemList: List<S>) : UiState<S>()
     data class Failure(val throwable: Throwable) : UiState<Nothing>()
 }
 fun LeagueDto.mapLeague(): League = League(

@@ -1,3 +1,9 @@
 <resources>
     <string name="retry">Retry</string>
+    <string name="search_league">Search by league</string>
+    <string name="please_select_league">please select a league</string>
+    <string name="clear">CLEAR</string>
+    <string name="no_league_found">No league found</string>
+
+    <string name="team_logo_content_description">Team logo picture</string>
 </resources>

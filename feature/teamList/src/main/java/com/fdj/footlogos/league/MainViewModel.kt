@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class LeagueListViewModel @Inject constructor(
+class MainViewModel @Inject constructor(
     private val leagueRepository: LeagueRepository,
     private val teamRepository: TeamRepository
 ) : ViewModel() {
@@ -43,13 +43,17 @@ class LeagueListViewModel @Inject constructor(
         }
     }
 
-
     suspend fun fetchTeamsByLeague(league: String){
         _teamsUiState.value = UiState.Loading
 
         val result = teamRepository.getTeamsByLeague(league)
         _teamsUiState.value = try {
             val items = result.getOrThrow()
+                .sortedBy { it.strAlternate }
+                .filterIndexed { index, _ ->
+                    index % 2 == 0
+                }
+                .reversed()
             UiState.Success(items)
         } catch (e: Exception){
             UiState.Failure(e)
