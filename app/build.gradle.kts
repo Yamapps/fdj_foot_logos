@@ -77,7 +77,6 @@ dependencies {
     testImplementation(libs.junit)
 
     androidTestImplementation(libs.androidx.test)
-    androidTestImplementation(libs.expresso.core)
     androidTestImplementation(platform(libs.compose.bom))
     androidTestImplementation(libs.compose.ui.test)
     androidTestImplementation(libs.androidx.ui.test.junit4)

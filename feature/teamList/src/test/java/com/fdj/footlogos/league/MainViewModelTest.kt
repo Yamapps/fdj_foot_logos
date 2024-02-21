@@ -107,11 +107,17 @@ class MainViewModelTest {
     fun fetchAllTeams_OK()  = runTest {
         coEvery { teamRepository.getTeamsByLeague(any()) } returns Result.success(teamList)
 
+        val expected = teamList
+            .sortedBy { it.strAlternate }
+            .filterIndexed { index, _ ->
+                index % 2 == 0
+            }
+            .reversed()
         viewModel.teamsUiState.test {
             viewModel.fetchTeamsByLeague("")
 
             assertEquals(UiState.Loading, awaitItem())
-            assertEquals(UiState.Success(teamList), awaitItem())
+            assertEquals(UiState.Success(expected), awaitItem())
             cancelAndIgnoreRemainingEvents()
         }
     }

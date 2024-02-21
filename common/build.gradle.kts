@@ -50,11 +50,7 @@ dependencies {
     // Timber
     api(libs.timber)
 
-    // Joda
-    api(libs.joda.time)
-
     testImplementation(libs.junit)
 
     androidTestImplementation(libs.androidx.test)
-    androidTestImplementation(libs.expresso.core)
 }

@@ -5,31 +5,23 @@ androidx-activity-version = "1.8.2"
 appcompat = "1.6.1"
 coil-svg = "2.5.0"
 compose-bom-version = "2024.02.00"
-hilt-android-compiler = "2.44"
 hilt-android-testing = "2.50"
 hilt-version = "2.50"
 hilt-compose-version = "1.1.0"
 coil-version = "2.5.0"
 javax-inject = "1"
-joda-time = "2.12.7"
 junit-version = "4.13.2"
 androidx-test-version = "1.1.5"
-espresso-core-version = "3.5.1"
 kotlinx-coroutines-test = "1.7.3"
-kotlinx-datetime = "0.5.0"
 kotlinx-serialization-json = "1.6.0"
 logging-interceptor = "4.12.0"
 material = "1.11.0"
 mockk = "1.13.5"
 okhttp = "4.12.0"
-paging-runtime-ktx = "3.2.1"
 retrofit2-kotlinx-serialization-converter = "1.0.0"
 retrofit = "2.9.0"
-robolectric = "4.11.1"
-room-ktx = "2.6.1"
 timber = "4.7.1"
 ui-test-junit4 = "1.6.1"
-ui-tooling = "1.6.1"
 agp = "8.2.2"
 kotlin = "1.9.0"
 turbine = "1.0.0"
@@ -50,16 +42,13 @@ compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview"
 compose-material3 = { module = "androidx.compose.material3:material3"}
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt-version" }
 hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt-version" }
-hilt-android-compiler-v244 = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt-android-compiler" }
 hilt-android-testing = { module = "com.google.dagger:hilt-android-testing", version.ref = "hilt-android-testing" }
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt-version" }
 hilt-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hilt-compose-version" }
 coil = { module = "io.coil-kt:coil", version.ref = "coil-version" }
 javax-inject = { module = "javax.inject:javax.inject", version.ref = "javax-inject" }
-joda-time = { module = "joda-time:joda-time", version.ref = "joda-time" }
 junit = { module = "junit:junit", version.ref = "junit-version" }
 androidx-test = { module = "androidx.test.ext:junit", version.ref = "androidx-test-version" }
-expresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso-core-version" }
 compose-ui-test = { module = "androidx.compose.ui:ui-test-junit4"}
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling"}
 compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest"}
@@ -70,7 +59,6 @@ material = { module = "com.google.android.material:material", version.ref = "mat
 okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
 retrofit2-kotlinx-serialization-converter = { module = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter", version.ref = "retrofit2-kotlinx-serialization-converter" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
-robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectric" }
 mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
 timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 androidx-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "androidx-lifecycle-version" }

@@ -84,5 +84,4 @@ dependencies {
     testImplementation(libs.turbine)
 
     androidTestImplementation(libs.androidx.test)
-    androidTestImplementation(libs.expresso.core)
 }
